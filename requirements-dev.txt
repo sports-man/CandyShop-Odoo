@@ -1,7 +1,7 @@
 build==0.8.0
 bumpversion==0.6.0
 coverage==6.4
-coveralls==3.3.1
+coveralls==4.0.1
 flake8==4.0.1
 gitchangelog==3.0.4
 pip==22.1.1
