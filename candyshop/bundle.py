@@ -29,6 +29,7 @@ from ast import literal_eval
 from lxml import etree
 
 from .utils import find_files, ModuleProperties, strip_comments_and_blanks
+import lxml.etree
 
 DEFAULT_MANIFEST_FILE = '__manifest__.py'
 DEFAULT_OCA_USER = 'OCA'
@@ -146,7 +147,7 @@ class Module(object):
         assert self.__xmlfile_isfrom_module(xmlfile), \
             'The file {0} does not belong to this module.'.format(xmlfile)
         try:
-            doc = etree.parse(xmlfile)
+            doc = etree.parse(xmlfile, parser=lxml.etree.XMLParser(resolve_entities=False))
         except etree.XMLSyntaxError as e:
             return e.message
         else:
